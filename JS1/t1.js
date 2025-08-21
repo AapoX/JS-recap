@@ -26,10 +26,44 @@ function twoDplane() {
     `Etäisyys pisteiden (${x1},${y1}) ja (${x2},${y2}) välillä: ${distance.toFixed(2)}`;
 }
 
+
+function calculateGrade() {
+  const num = parseFloat(document.getElementById('score').value);
+  let grade;
+
+  switch (true) {
+    case num >= 0 && num <= 39:
+      grade = 0;
+      break;
+    case num >= 40 && num <= 51:
+      grade = 1;
+      break;
+    case num >= 52 && num <= 63:
+      grade = 2;
+      break;
+    case num >= 64 && num <= 75:
+      grade = 3;
+      break;
+    case num >= 76 && num <= 87:
+      grade = 4;
+      break;
+    case num >= 88 && num <= 100:
+      grade = 5;
+      break;
+    default:
+      grade = 'Invalid score';
+  }
+  document.getElementById('graderesult').textContent = `Arvosanasi on ${grade}`;
+}
+
+// EL for all tasks I hate doing .onclick in HTML
 document.addEventListener('DOMContentLoaded', function () {
-  const convert = document.getElementById('convert');
+  const convert = document.getElementById('convertTemp');
   convert.addEventListener('click', convertTemp);
 
   const calculateBtn = document.getElementById('calculateBtn');
   calculateBtn.addEventListener('click', twoDplane);
+
+  const grade = document.getElementById('calculateGrade');
+  grade.addEventListener('click', calculateGrade);
 });
