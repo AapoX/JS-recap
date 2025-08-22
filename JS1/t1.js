@@ -1,3 +1,5 @@
+// Tehtävä 1
+
 function convertTemp() {
   const celcius = document.getElementById('celcius');
   const fahrenheit = (celcius.value * 9) / 5 + 32;
@@ -7,8 +9,9 @@ function convertTemp() {
     `Lämpötila Fahrenheit: ${fahrenheit}°F, Kelvin: ${kelvin}K`;
 }
 
+// Tehtävä 2
+
 function twoDplane() {
-  // Get coordinates from input field
   const coordsInput = document.getElementById('coords').value;
 
   const points = coordsInput.split(' ');
@@ -26,6 +29,28 @@ function twoDplane() {
     `Etäisyys pisteiden (${x1},${y1}) ja (${x2},${y2}) välillä: ${distance.toFixed(2)}`;
 }
 
+// Tehtävä 3
+
+function calcTriangle() {
+  const sides = document.getElementById('triangle').value;
+  const points = sides.split(',');
+  const a = parseFloat(points[0]);
+  const b = parseFloat(points[1]);
+  const c = parseFloat(points[2]);
+  let status = '';
+
+  if (a === b && b === c) {
+    status = 'Equilateral triangle';
+  } else if (a === b || b === c || a === c) {
+    status = 'Isosceles triangle';
+  } else if (a !== b && b !== c && a !== c) {
+    status = 'Scalene triangle';
+  }
+
+  document.getElementById('triangleResult').textContent = status;
+}
+
+//Tehtävä 4
 
 function calculateGrade() {
   const num = parseFloat(document.getElementById('score').value);
@@ -56,6 +81,48 @@ function calculateGrade() {
   document.getElementById('graderesult').textContent = `Arvosanasi on ${grade}`;
 }
 
+// Tehtävä 5
+
+function sumNaturalNumbers() {
+  const num = parseInt(document.getElementById('naturalNum').value);
+  let sum = 0;
+
+  if (num > 0) {
+    for (let i = 1; i <= num; i++) {
+      sum += i;
+    }
+    document.getElementById('sumResult').textContent =
+      `Sum of natural numbers up to ${num} is ${sum}`;
+  } else {
+    document.getElementById('sumResult').textContent =
+      'Please enter a positive integer.';
+  }
+}
+
+// Tehtävä 6
+function generateMultiplicationTable() {
+  const input = document.getElementById('multiplicationInput').value;
+  const num = parseInt(input);
+
+  if (isNaN(num) || num <= 0) {
+    document.getElementById('multiplicationTable').innerHTML =
+      'Please enter a valid positive integer.';
+    return;
+  }
+
+  let tableHTML = "<table border='1' cellpadding='5'>";
+  for (let i = 1; i <= num; i++) {
+    tableHTML += '<tr>';
+    for (let j = 1; j <= num; j++) {
+      tableHTML += `<td>${i * j}</td>`;
+    }
+    tableHTML += '</tr>';
+  }
+  tableHTML += '</table>';
+
+  document.getElementById('multiplicationTable').innerHTML = tableHTML;
+}
+
 // EL for all tasks I hate doing .onclick in HTML
 document.addEventListener('DOMContentLoaded', function () {
   const convert = document.getElementById('convertTemp');
@@ -66,4 +133,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const grade = document.getElementById('calculateGrade');
   grade.addEventListener('click', calculateGrade);
+
+  const triangle = document.getElementById('triangleType');
+  triangle.addEventListener('click', calcTriangle);
+
+  const sumBtn = document.getElementById('calculateSum');
+  sumBtn.addEventListener('click', sumNaturalNumbers);
+
+  const generateTableBtn = document.getElementById('generateTable');
+  generateTableBtn.addEventListener('click', generateMultiplicationTable);
 });
