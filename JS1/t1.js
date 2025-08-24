@@ -104,13 +104,13 @@ function generateMultiplicationTable() {
   const input = document.getElementById('multiplicationInput').value;
   const num = parseInt(input);
 
-  if (isNaN(num) || num <= 0) {
+  if (num <= 0) {
     document.getElementById('multiplicationTable').innerHTML =
-      'Please enter a valid positive integer.';
+      'Anna positiivinen numero';
     return;
   }
 
-  let tableHTML = "<table border='1' cellpadding='5'>";
+  let tableHTML = "<table border='1'";
   for (let i = 1; i <= num; i++) {
     tableHTML += '<tr>';
     for (let j = 1; j <= num; j++) {
