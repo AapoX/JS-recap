@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API Exercises</title>
+    <link rel="stylesheet" href="t5.css" />
+  </head>
+  <body>
+    <h1>Fetch API Exercises</h1>
+
+    <div class="exercise">
+      <h2>Exercise 1: GET Request (2p)</h2>
+      <p>Make a GET request to fetch user data from reqres API</p>
+      <button onclick="getUserData()">Get User Data</button>
+      <div id="getUserResults" class="results"></div>
+    </div>
+
+    <div class="exercise">
+      <h2>Exercise 2: POST Request (3p)</h2>
+      <p>Make a POST request to create a new user</p>
+      <button onclick="createUser()">Create User</button>
+      <div id="postResults" class="results"></div>
+    </div>
+
+    <div class="exercise">
+      <h2>Exercise 3: Error Handling (4p)</h2>
+      <p>Test error handling with different HTTP methods</p>
+      <button onclick="testErrorHandling('GET')">Test GET Error</button>
+      <button onclick="testErrorHandling('POST')">Test POST Error</button>
+      <button onclick="testErrorHandling('PUT')">Test PUT Error</button>
+      <button onclick="testErrorHandling('DELETE')">Test DELETE Error</button>
+      <div id="errorResults" class="results"></div>
+    </div>
+
+    <div class="exercise">
+      <h2>Exercise 4: Generic Fetch Function (5p)</h2>
+      <p>Test the reusable fetchData function</p>
+      <button onclick="testFetchData()">Test Generic Function</button>
+      <div id="genericResults" class="results"></div>
+    </div>
+
+    <script src="t5.js"></script>
+  </body>
+</html>
